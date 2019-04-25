@@ -5,14 +5,11 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-// logging middleware
 app.use(volleyball);
 
-// body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// static middleware
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/api/hello', (req, res) => {
@@ -26,15 +23,14 @@ app.post('/api/world', (req, res) => {
   );
 });
 
-app.use('/api', require('./server/api')); // include our routes!
+app.use('/api', require('./server/api'));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
-}); // Send index.html for any other requests
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-// error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).send(err.message || 'Internal server error');
