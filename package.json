@@ -5,13 +5,25 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.37.8",
+    "express": "^4.14.0",
+    "nodemon": "^1.18.10",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "pg": "^7.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "seed": "node seed.js"
   },
   "eslintConfig": {
     "extends": "react-app"
