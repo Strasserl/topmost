@@ -101,8 +101,7 @@ class StudentInputForm extends Component {
               </div>
               <div>
                 <h2>
-                  How's your morning going? Is there anything you would like to
-                  share?
+                  Is there anything you would like to share with your teacher?
                 </h2>
                 <textarea
                   rows="8"
