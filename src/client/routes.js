@@ -5,6 +5,8 @@ import TeacherHome from './components/teacher-homepage';
 import TeacherInputForm from './components/teacher-input-form';
 import StudentHome from './components/student-homepage';
 import StudentInputForm from './components/student-input-form';
+import WholeClassBar from './components/whole-class-bar';
+import WholeClassPie from './components/whole-class-pie';
 
 class Routes extends Component {
   render() {
@@ -14,6 +16,8 @@ class Routes extends Component {
         <Route exact path="/teacher-input-form" component={TeacherInputForm} />
         <Route exact path="/student-home" component={StudentHome} />
         <Route exact path="/student-input-form" component={StudentInputForm} />
+        <Route exact path="/class-bar" component={WholeClassBar} />
+        <Route exact path="/class-pie" component={WholeClassPie} />
       </Switch>
     );
   }

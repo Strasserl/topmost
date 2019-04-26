@@ -1,5 +1,7 @@
 import React from 'react';
 import TeacherInputForm from './teacher-input-form';
+import WholeClassBar from './whole-class-bar';
+
 // import { connect } from 'react-redux';
 
 export const TeacherHome = props => {
@@ -9,6 +11,8 @@ export const TeacherHome = props => {
     <div>
       Good Morning!!
       <TeacherInputForm />
+      <br />
+      <WholeClassBar />
     </div>
   );
   // props.email ? (
