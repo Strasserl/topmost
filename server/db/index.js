@@ -13,7 +13,7 @@ Student.hasMany(StudentAnswer);
 TeacherMessage.belongsTo(Teacher);
 Teacher.hasMany(TeacherMessage);
 
-Student.module.exports = {
+module.exports = {
   db,
   Teacher,
   Student,

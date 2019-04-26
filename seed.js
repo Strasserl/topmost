@@ -1,6 +1,6 @@
 const { db } = require('./server/db');
 const { green, red } = require('chalk');
-const { Student, Teacher } = require('./server/db/index');
+const { Student, Teacher, StudentAnswer } = require('./server/db/index');
 
 const students = [
   {
@@ -51,6 +51,61 @@ const teachers = [
   },
 ];
 
+const studentAnswers = [
+  {
+    mood: 'excellent',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'excellent',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'good',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'good',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'fine',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'bad',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'bad',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'terrible',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'terrible',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'great',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+];
+
+const teacherMessages = [{}];
+
 async function seed() {
   try {
     await db.sync({ force: true });
@@ -59,6 +114,7 @@ async function seed() {
     const [student, teacher] = await Promise.all([
       Student.bulkCreate(students, { returning: true }),
       Teacher.bulkCreate(teachers, { returning: true }),
+      StudentAnswer.bulkCreate(studentAnswers, { returning: true }),
     ]);
 
     console.log(green('Seeding successful!!'));

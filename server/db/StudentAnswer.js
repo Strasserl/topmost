@@ -7,7 +7,7 @@ const StudentAnswer = db.define('studentAnswer', {
     allowNull: false,
   },
   comment: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: true,
   },
   timestamp: {
