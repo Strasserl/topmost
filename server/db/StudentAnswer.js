@@ -10,6 +10,10 @@ const StudentAnswer = db.define('studentAnswer', {
     type: Sequelize.STRING,
     allowNull: true,
   },
+  timestamp: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW,
+  },
 });
 
 module.exports = StudentAnswer;
