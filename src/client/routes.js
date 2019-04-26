@@ -3,18 +3,17 @@ import React, { Component } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import TeacherHome from './components/teacher-homepage';
 import TeacherInputForm from './components/teacher-input-form';
-// import PropTypes from 'prop-types';
-
-// import { me } from './store';
+import StudentHome from './components/student-homepage';
+import StudentInputForm from './components/student-input-form';
 
 class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Switch>
-          <Route path="/" component={TeacherHome} />
-          <Route path="/teacher-input-form" component={TeacherInputForm} />
-        </Switch>
+        <Route exact path="/" component={TeacherHome} />
+        <Route exact path="/teacher-input-form" component={TeacherInputForm} />
+        <Route exact path="/student-home" component={StudentHome} />
+        <Route exact path="/student-input-form" component={StudentInputForm} />
       </Switch>
     );
   }
