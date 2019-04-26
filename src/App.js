@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Routes from './client/routes';
 import './App.css';
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header" />
         <h1>Topmost</h1>
+        <Routes />
       </div>
     );
   }

@@ -1,10 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import TeacherInputForm from './teacher-input-form';
+// import { connect } from 'react-redux';
 
 export const TeacherHome = props => {
   // const { email } = props;
 
-  return <div>Good Morning!!</div>;
+  return (
+    <div>
+      Good Morning!!
+      <TeacherInputForm />
+    </div>
+  );
   // props.email ? (
   //   <div id="welcome-user">
   //     <h4>Good Morning, {email}</h4>
