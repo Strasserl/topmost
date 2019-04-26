@@ -12,6 +12,7 @@ export const TeacherHome = props => {
       Good Morning!!
       <TeacherInputForm />
       <br />
+      <h1>Today's Data:</h1>
       <WholeClassBar />
     </div>
   );
