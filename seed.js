@@ -11,18 +11,25 @@ const students = [
     readingLevel: 925,
   },
   {
-    firstName: 'Clementine',
+    firstName: 'Nora',
     lastName: 'Unstead',
-    email: 'cunstead1@imageshack.us',
+    email: 'nunstead1@imageshack.us',
     imageUrl: 'http://dummyimage.com/193x241.jpg/ff4444/ffffff',
     readingLevel: 1000,
   },
   {
-    firstName: 'Rosalinda',
+    firstName: 'Meg',
     lastName: 'Somerton',
-    email: 'rsomerton2@umn.edu',
+    email: 'msomerton2@umn.edu',
     imageUrl: 'http://dummyimage.com/223x133.bmp/dddddd/000000',
     readingLevel: 975,
+  },
+  {
+    firstName: 'Skye',
+    lastName: 'Wilden',
+    email: 'swildene@independent.co.uk',
+    imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
+    readingLevel: 1100,
   },
   {
     firstName: 'Amalee',
@@ -30,6 +37,20 @@ const students = [
     email: 'avilleb@w3.org',
     imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
     readingLevel: 1200,
+  },
+  {
+    firstName: 'John',
+    lastName: 'Petrus',
+    email: 'bpetrusf@epa.gov',
+    imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
+    readingLevel: 950,
+  },
+  {
+    firstName: 'Caelan',
+    lastName: 'Chamberlen',
+    email: 'schamberlend@php.net',
+    imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
+    readingLevel: 925,
   },
 ];
 
@@ -99,6 +120,26 @@ const studentAnswers = [
   },
   {
     mood: 'great',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'great',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'excellent',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'bad',
+    comment:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+  },
+  {
+    mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
   },

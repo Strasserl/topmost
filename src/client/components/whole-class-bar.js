@@ -24,7 +24,7 @@ const data = [
     mood: 5000,
   },
   {
-    name: 'Ted',
+    name: 'Skye',
     mood: 2500,
   },
   {
