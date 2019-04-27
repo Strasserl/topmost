@@ -104,8 +104,6 @@ const studentAnswers = [
   },
 ];
 
-const teacherMessages = [{}];
-
 async function seed() {
   try {
     await db.sync({ force: true });
