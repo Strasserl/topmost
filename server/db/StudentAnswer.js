@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('./database');
+const moment = require('Moment');
 
 const StudentAnswer = db.define('studentAnswer', {
   mood: {
@@ -10,9 +11,11 @@ const StudentAnswer = db.define('studentAnswer', {
     type: Sequelize.TEXT,
     allowNull: true,
   },
-  timestamp: {
-    type: Sequelize.DATE,
-    defaultValue: Sequelize.NOW,
+  date: {
+    type: Sequelize.DATEONLY,
+    get: function() {
+      return moment.utc(this.getDataValue('CreateDate')).format('YYYY-MM-DD');
+    },
   },
 });
 

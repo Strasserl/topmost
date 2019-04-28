@@ -62,8 +62,6 @@ const renderCustomizedLabel = ({
 };
 
 export default class WholeClasssPie extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/c9pL8k61/';
-
   render() {
     return (
       <PieChart width={400} height={400}>
