@@ -14,7 +14,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     const student = await Student.find({
       where: { id: req.params.id },
-      include: [{ model: Teacher, StudentAnswer }],
+      include: [{ model: StudentAnswer }],
     });
     res.json(student);
   } catch (error) {
