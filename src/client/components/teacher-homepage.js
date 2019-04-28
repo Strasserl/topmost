@@ -9,10 +9,9 @@ export const TeacherHome = props => {
 
   return (
     <div>
-      Good Morning!!
+      <h4>Good Morning!!</h4>
       <TeacherInputForm />
-      <br />
-      <h1>Today's Data:</h1>
+      <h2>Today's Data:</h2>
       <WholeClassBar />
     </div>
   );
