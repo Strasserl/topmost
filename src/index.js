@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import './index.css';
 import history from './history';
-// import store from './client/store';
+import store from './client/store';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   // <Provider store={store}>
-  <Provider>
+  <Provider store={store}>
     <Router history={history}>
       <App />
     </Router>
