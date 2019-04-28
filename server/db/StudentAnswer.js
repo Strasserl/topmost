@@ -12,10 +12,7 @@ const StudentAnswer = db.define('studentAnswer', {
     allowNull: true,
   },
   date: {
-    type: Sequelize.DATEONLY,
-    get: function() {
-      return moment.utc(this.getDataValue('CreateDate')).format('YYYY-MM-DD');
-    },
+    type: Sequelize.STRING,
   },
 });
 

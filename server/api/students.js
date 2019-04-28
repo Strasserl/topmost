@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Student, Teacher } = require('../db');
+const { Student, Teacher, StudentAnswer } = require('../db');
 
 router.get('/', async (req, res, next) => {
   try {
@@ -14,7 +14,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     const student = await Student.find({
       where: { id: req.params.id },
-      include: [{ model: Teacher }],
+      include: [{ model: Teacher, StudentAnswer }],
     });
     res.json(student);
   } catch (error) {

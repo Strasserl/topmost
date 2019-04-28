@@ -10,9 +10,8 @@ const TeacherMessage = db.define('teacherMessage', {
     type: Sequelize.TEXT,
     allowNull: true,
   },
-  timestamp: {
-    type: Sequelize.DATE,
-    defaultValue: Sequelize.NOW,
+  date: {
+    type: Sequelize.STRING,
   },
 });
 

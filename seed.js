@@ -1,7 +1,6 @@
 const { db } = require('./server/db');
 const { green, red } = require('chalk');
 const { Student, Teacher, StudentAnswer } = require('./server/db/index');
-const moment = require('Moment');
 
 const students = [
   {
@@ -10,6 +9,7 @@ const students = [
     email: 'fstilgo0@sbwire.com',
     imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
     readingLevel: 925,
+    teacherId: [1],
   },
   {
     firstName: 'Nora',
@@ -17,6 +17,7 @@ const students = [
     email: 'nunstead1@imageshack.us',
     imageUrl: 'http://dummyimage.com/193x241.jpg/ff4444/ffffff',
     readingLevel: 1000,
+    teacherId: [1],
   },
   {
     firstName: 'Meg',
@@ -24,6 +25,7 @@ const students = [
     email: 'msomerton2@umn.edu',
     imageUrl: 'http://dummyimage.com/223x133.bmp/dddddd/000000',
     readingLevel: 975,
+    teacherId: [1],
   },
   {
     firstName: 'Skye',
@@ -31,6 +33,7 @@ const students = [
     email: 'swildene@independent.co.uk',
     imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
     readingLevel: 1100,
+    teacherId: [1],
   },
   {
     firstName: 'Amalee',
@@ -38,6 +41,7 @@ const students = [
     email: 'avilleb@w3.org',
     imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
     readingLevel: 1200,
+    teacherId: [1],
   },
   {
     firstName: 'John',
@@ -45,6 +49,7 @@ const students = [
     email: 'bpetrusf@epa.gov',
     imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
     readingLevel: 950,
+    teacherId: [1],
   },
   {
     firstName: 'Caelan',
@@ -52,6 +57,7 @@ const students = [
     email: 'schamberlend@php.net',
     imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
     readingLevel: 925,
+    teacherId: [1],
   },
 ];
 
@@ -78,312 +84,344 @@ const studentAnswers = [
     mood: 'excellent',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Monday',
+    date: '2019-04-22',
+    studentId: [1],
   },
   {
     mood: 'excellent',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Monday',
+    date: '2019-04-22',
+    studentId: [2],
   },
   {
     mood: 'good',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Monday',
+    date: '2019-04-22',
+    studentId: [3],
   },
   {
     mood: 'good',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Monday',
+    date: '2019-04-22',
+    studentId: [4],
   },
   {
     mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Monday',
+    date: '2019-04-22',
+    studentId: [5],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Monday',
+    date: '2019-04-22',
+    studentId: [6],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Monday',
+    date: '2019-04-22',
+    studentId: [7],
   },
   {
     mood: 'terrible',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Tuesday',
+    date: '2019-04-23',
+    studentId: [1],
   },
   {
     mood: 'terrible',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Tuesday',
+    date: '2019-04-23',
+    studentId: [2],
   },
   {
     mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Tuesday',
+    date: '2019-04-23',
+    studentId: [3],
   },
   {
     mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Tuesday',
+    date: '2019-04-23',
+    studentId: [4],
   },
   {
     mood: 'excellent',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Tuesday',
+    date: '2019-04-23',
+    studentId: [5],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Tuesday',
+    date: '2019-04-23',
+    studentId: [6],
   },
   {
     mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Tuesday',
+    date: '2019-04-23',
+    studentId: [7],
   },
   {
     mood: 'excellent',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Wednesday',
+    date: '2019-04-24',
+    studentId: [1],
   },
   {
     mood: 'good',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Wednesday',
+    date: '2019-04-24',
+    studentId: [2],
   },
   {
     mood: 'good',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Wednesday',
+    date: '2019-04-24',
+    studentId: [3],
   },
   {
     mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Wednesday',
+    date: '2019-04-24',
+    studentId: [4],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Wednesday',
+    date: '2019-04-24',
+    studentId: [5],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Wednesday',
+    date: '2019-04-24',
+    studentId: [6],
   },
   {
     mood: 'terrible',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Wednesday',
+    date: '2019-04-24',
+    studentId: [7],
   },
   {
     mood: 'terrible',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Thursday',
+    date: '2019-04-25',
+    studentId: [1],
   },
   {
     mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Thursday',
+    date: '2019-04-25',
+    studentId: [2],
   },
   {
     mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Thursday',
+    date: '2019-04-25',
+    studentId: [3],
   },
   {
     mood: 'excellent',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Thursday',
+    date: '2019-04-25',
+    studentId: [4],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Thursday',
+    date: '2019-04-25',
+    studentId: [5],
   },
   {
     mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Thursday',
+    date: '2019-04-25',
+    studentId: [6],
   },
   {
     mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Thursday',
+    date: '2019-04-25',
+    studentId: [7],
   },
   {
     mood: 'good',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Friday',
+    date: '2019-04-26',
+    studentId: [1],
   },
   {
     mood: 'good',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Friday',
+    date: '2019-04-26',
+    studentId: [2],
   },
   {
     mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Friday',
+    date: '2019-04-26',
+    studentId: [3],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Friday',
+    date: '2019-04-26',
+    studentId: [4],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Friday',
+    date: '2019-04-26',
+    studentId: [5],
   },
   {
     mood: 'terrible',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Friday',
+    date: '2019-04-26',
+    studentId: [6],
   },
   {
     mood: 'terrible',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Friday',
+    date: '2019-04-26',
+    studentId: [7],
   },
   {
     mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-    day: 'Monday',
+    date: '2019-04-29',
+    studentId: [1],
   },
   {
     mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-29',
+    studentId: [2],
   },
   {
     mood: 'excellent',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-29',
+    studentId: [3],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-29',
+    studentId: [4],
   },
   {
     mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-29',
+    studentId: [5],
   },
   {
     mood: 'excellent',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-29',
+    studentId: [6],
   },
   {
     mood: 'good',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-29',
+    studentId: [7],
   },
   {
     mood: 'good',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-30',
+    studentId: [1],
   },
   {
     mood: 'fine',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-30',
+    studentId: [2],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-30',
+    studentId: [3],
   },
   {
     mood: 'bad',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-30',
+    studentId: [4],
   },
   {
     mood: 'terrible',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-30',
+    studentId: [5],
   },
   {
     mood: 'terrible',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-30',
+    studentId: [6],
   },
   {
     mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-  },
-  {
-    mood: 'great',
-    comment:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-  },
-  {
-    mood: 'excellent',
-    comment:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-  },
-  {
-    mood: 'bad',
-    comment:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-  },
-  {
-    mood: 'fine',
-    comment:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-  },
-  {
-    mood: 'fine',
-    comment:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
-  },
-  {
-    mood: 'great',
-    comment:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+    date: '2019-04-30',
+    studentId: [7],
   },
 ];
 
@@ -392,15 +430,16 @@ async function seed() {
     await db.sync({ force: true });
     console.log('db synced!');
 
-    const [student, teacher] = await Promise.all([
-      Student.bulkCreate(students, { returning: true }),
+    const [teacher, student, studentanswer] = await Promise.all([
       Teacher.bulkCreate(teachers, { returning: true }),
+      Student.bulkCreate(students, { returning: true }),
       StudentAnswer.bulkCreate(studentAnswers, { returning: true }),
     ]);
 
     console.log(green('Seeding successful!!'));
-    console.log(`seeded ${student.length} students`);
     console.log(`seeded ${teacher.length} teachers`);
+    console.log(`seeded ${student.length} students`);
+    console.log(`seeded ${studentanswer.length} studentanswer`);
   } catch (err) {
     console.log(err);
   }
