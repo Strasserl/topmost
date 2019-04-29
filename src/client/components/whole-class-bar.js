@@ -61,30 +61,35 @@ class WholeClasssBar extends PureComponent {
     return answersLoading ? (
       <Loading />
     ) : (
-      <BarChart
-        width={600}
-        height={500}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis
-          label={{
-            value: 'terrible <----> excellent',
-            angle: -90,
-            position: 'insideLeft',
+      <div>
+        <BarChart
+          width={600}
+          height={500}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
           }}
-        />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="mood" fill="#8884d8" onClick={this.handleBarClick} />
-      </BarChart>
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis
+            label={{
+              value: 'terrible <----> excellent',
+              angle: -90,
+              position: 'insideLeft',
+            }}
+          />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="mood" fill="#8884d8" onClick={this.handleBarClick} />
+        </BarChart>
+        <p>
+          KEY: excellent: 2000, great: 1500, fine: 1000, bad: 500, terrible: 100
+        </p>
+      </div>
     );
   }
 }
