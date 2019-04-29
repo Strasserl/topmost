@@ -9,6 +9,7 @@ import WholeClassBar from './components/whole-class-bar';
 import WholeClassPie from './components/whole-class-pie';
 import Loading from './components/loading';
 import SingleStudent from './components/single-student-data';
+import SingleStudentBar from './components/single-student-bar';
 
 class Routes extends Component {
   render() {
@@ -22,6 +23,7 @@ class Routes extends Component {
         <Route exact path="/class-pie" component={WholeClassPie} />
         <Route exact path="/loading" component={Loading} />
         <Route path="/students/:id" component={SingleStudent} />
+        <Route path="/students/:id/bar" component={SingleStudentBar} />
       </Switch>
     );
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStudent } from '../store/student';
 import Loading from './loading';
+import SingleStudentBar from './single-student-bar';
 import { Table, Container } from 'reactstrap';
 
 class SingleStudent extends React.Component {
@@ -30,6 +31,11 @@ class SingleStudent extends React.Component {
         <h3> Email: {student.email}</h3>
         <h3> Reading Level: {student.readingLevel}</h3>
         <div>
+          <SingleStudentBar
+            student={student}
+            studentAnswers={studentAnswers}
+            loading={loading}
+          />
           <Container>
             <h2>Student Messages:</h2>
             <Table striped bordered hover>
