@@ -35,8 +35,8 @@ export const fetchAnswers = () => {
   return async dispatch => {
     try {
       dispatch(gettingAnswers());
-      const answers = await axios.get('/api/studentAnswers');
-      dispatch(gotAnswers(answers));
+      const { data } = await axios.get('/api/studentAnswers');
+      dispatch(gotAnswers(data));
     } catch (error) {
       console.log(error);
     }
@@ -47,8 +47,8 @@ export const fetchAnswer = id => {
   return async dispatch => {
     try {
       dispatch(gettingAnswer());
-      const answer = await axios.get(`/api/studentAnswers/${id}`);
-      dispatch(gotAnswer(answer));
+      const { data } = await axios.get(`/api/studentAnswers/${id}`);
+      dispatch(gotAnswer(data));
     } catch (error) {
       console.log(error);
     }
@@ -81,7 +81,7 @@ const answerReducer = (state = initialState, action) => {
       return {
         ...state,
         answersLoading: false,
-        all: [...state, ...action.answers.data],
+        all: action.answers,
       };
     case GETTING_ANSWER:
       return { ...state, answerLoading: true };
@@ -89,7 +89,7 @@ const answerReducer = (state = initialState, action) => {
       return {
         ...state,
         answerLoading: false,
-        selectedAnswer: { ...action.answer.data },
+        selectedAnswer: { ...action.answer },
       };
     case ADD_ANSWER:
       const newAnswer = {

@@ -1,36 +1,8 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import { PieChart, Pie, Sector, Cell } from 'recharts';
-
-const data = [
-  {
-    name: 'Fletch',
-    mood: 'excellent',
-  },
-  {
-    name: 'Clementine',
-    mood: 'great',
-  },
-  {
-    name: 'Rosalinda',
-    mood: 'fine',
-  },
-  {
-    name: 'Page D',
-    mood: 'bad',
-  },
-  {
-    name: 'Amalee',
-    mood: 'terrible',
-  },
-  {
-    name: 'John',
-    mood: 'bad',
-  },
-  {
-    name: 'Caelan',
-    mood: 'fine',
-  },
-];
+import { fetchAnswers } from '../store/studentAnswers';
+import Loading from './loading';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -61,9 +33,31 @@ const renderCustomizedLabel = ({
   );
 };
 
-export default class WholeClasssPie extends PureComponent {
+class WholeClasssPie extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchAnswers();
+  }
+
   render() {
-    return (
+    const answers = this.props.answers;
+    const loading = answers.loading;
+
+    const today = answers.filter(answer => {
+      return answer.date === '2019-04-30';
+    });
+
+    const data = today.map(answer => {
+      return answer.mood;
+    });
+    console.log('data', data);
+
+    return loading ? (
+      <Loading />
+    ) : (
       <PieChart width={400} height={400}>
         <Pie
           data={data}
@@ -83,3 +77,21 @@ export default class WholeClasssPie extends PureComponent {
     );
   }
 }
+
+const mapState = state => {
+  return {
+    loading: state.answerReducer.answersLoading,
+    answers: state.answerReducer.all,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAnswers: () => dispatch(fetchAnswers()),
+  };
+};
+
+export default connect(
+  mapState,
+  mapDispatchToProps
+)(WholeClasssPie);
