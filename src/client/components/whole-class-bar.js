@@ -1,4 +1,8 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { fetchAnswers } from '../store/studentAnswers';
+
+import Loading from './loading';
 import {
   BarChart,
   Bar,
@@ -10,42 +14,43 @@ import {
   Legend,
 } from 'recharts';
 
-const data = [
-  {
-    name: 'Fletch',
-    mood: 10000,
-  },
-  {
-    name: 'Nora',
-    mood: 7500,
-  },
-  {
-    name: 'Meg',
-    mood: 5000,
-  },
-  {
-    name: 'Skye',
-    mood: 2500,
-  },
-  {
-    name: 'Amalee',
-    mood: 1000,
-  },
-  {
-    name: 'John',
-    mood: 2500,
-  },
-  {
-    name: 'Caelan',
-    mood: 5000,
-  },
-];
+const quantity = {
+  excellent: 2000,
+  great: 1500,
+  good: 1000,
+  fine: 1000,
+  bad: 500,
+  terrible: 100,
+};
 
-export default class WholeClasssBar extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
+class WholeClasssBar extends PureComponent {
+  // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchAnswers();
+    // this.props.fetchStudents();
+  }
 
   render() {
-    return (
+    const { answers, answersLoading } = this.props;
+
+    const today = answers.filter(answer => {
+      return answer.date === '2019-04-30';
+    });
+
+    const data = today.map(answer => {
+      return { name: answer.student.firstName, mood: quantity[answer.mood] };
+    });
+
+    console.log('data', data);
+
+    return answersLoading ? (
+      <Loading />
+    ) : (
       <BarChart
         width={500}
         height={300}
@@ -67,3 +72,23 @@ export default class WholeClasssBar extends PureComponent {
     );
   }
 }
+
+const mapState = state => {
+  return {
+    // loading: state.students.loading
+    answersLoading: state.answerReducer.answersLoading,
+    answers: state.answerReducer.all,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAnswers: () => dispatch(fetchAnswers()),
+    // fetchStudents: () => dispatch(fetchStudents()),
+  };
+};
+
+export default connect(
+  mapState,
+  mapDispatchToProps
+)(WholeClasssBar);

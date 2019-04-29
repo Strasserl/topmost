@@ -53,7 +53,6 @@ class WholeClasssPie extends PureComponent {
     const data = today.map(answer => {
       return answer.mood;
     });
-    console.log('data', data);
 
     return loading ? (
       <Loading />

@@ -95,14 +95,14 @@ const studentAnswers = [
     studentId: [2],
   },
   {
-    mood: 'good',
+    mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
     date: '2019-04-22',
     studentId: [3],
   },
   {
-    mood: 'good',
+    mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
     date: '2019-04-22',
@@ -186,14 +186,14 @@ const studentAnswers = [
     studentId: [1],
   },
   {
-    mood: 'good',
+    mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
     date: '2019-04-24',
     studentId: [2],
   },
   {
-    mood: 'good',
+    mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
     date: '2019-04-24',
@@ -277,14 +277,14 @@ const studentAnswers = [
     studentId: [7],
   },
   {
-    mood: 'good',
+    mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
     date: '2019-04-26',
     studentId: [1],
   },
   {
-    mood: 'good',
+    mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
     date: '2019-04-26',
@@ -368,14 +368,14 @@ const studentAnswers = [
     studentId: [6],
   },
   {
-    mood: 'good',
+    mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
     date: '2019-04-29',
     studentId: [7],
   },
   {
-    mood: 'good',
+    mood: 'great',
     comment:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
     date: '2019-04-30',
