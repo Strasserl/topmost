@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchStudent } from '../store/student';
-import AddCartItem from './cart-item-add';
 import Loading from './loading';
-import { formatPrice } from '../../utils';
+import { Table, Container } from 'reactstrap';
 
 class SingleStudent extends React.Component {
   constructor(props) {
@@ -13,23 +11,49 @@ class SingleStudent extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.props.fetchFruit(id);
+    this.props.fetchStudent(id);
   }
 
   render() {
-    const fruit = this.props.fruit;
-    const loading = fruit.loading;
+    const student = this.props.student;
+    const loading = student.loading;
+    const studentAnswers = student.studentAnswers;
 
-    return loading ? (
+    return loading || studentAnswers === undefined ? (
       <Loading />
     ) : (
       <div>
-        <img className="singleFruitImage" src={fruit.imageUrl} />
-        <h1 className="fruitName"> {fruit.name} </h1>
-        <h3> Description: {fruit.description} </h3>
-        <h3> Price: {formatPrice(fruit.price)} </h3>
-        <h3> Quantity Available: {fruit.quantity} </h3>
-        <AddCartItem fruit={fruit} />
+        <h1>
+          STUDENT: {student.firstName} {student.lastName}
+        </h1>
+        <img className="studentImage" src={student.imageUrl} />
+        <h3> Email: {student.email}</h3>
+        <h3> Reading Level: {student.readingLevel}</h3>
+        <div>
+          <Container>
+            <h2>Student Messages:</h2>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Mood</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                {studentAnswers.map(message => {
+                  return (
+                    <tr key={message.id}>
+                      <td>{message.date}</td>
+                      <td>{message.mood}</td>
+                      <td>{message.comment}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </Container>
+        </div>
       </div>
     );
   }
@@ -37,13 +61,14 @@ class SingleStudent extends React.Component {
 
 const mapState = state => {
   return {
-    loading: state.fruits.loading,
-    fruit: state.fruits.selected,
+    loading: state.student.loading,
+    student: state.student.selected,
+    studentAnswers: state.student.studentAnswers,
   };
 };
 
 const mapDispatch = dispatch => ({
-  fetchFruit: id => dispatch(fetchFruit(id)),
+  fetchStudent: id => dispatch(fetchStudent(id)),
 });
 
 export default connect(

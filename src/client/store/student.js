@@ -9,6 +9,7 @@ const initialState = {
   all: [],
   loading: false,
   selected: {},
+  studentAnswers: {},
 };
 
 const gettingStudents = () => ({ type: GETTING_STUDENTS });
@@ -49,7 +50,12 @@ export default function(state = initialState, action) {
     case GETTING_STUDENT:
       return { ...state, loading: true };
     case GOT_STUDENT:
-      return { ...state, selected: { ...action.student }, loading: false };
+      return {
+        ...state,
+        selected: { ...action.student },
+        loading: false,
+        studentAnswers: { ...action.studentAnswers },
+      };
     default:
       return state;
   }
