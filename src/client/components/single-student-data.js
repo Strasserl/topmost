@@ -24,7 +24,7 @@ class SingleStudent extends React.Component {
     ) : (
       <div>
         <h1>
-          STUDENT: {student.firstName} {student.lastName}
+          Student: {student.firstName} {student.lastName}
         </h1>
         <img className="studentImage" src={student.imageUrl} />
         <h3> Email: {student.email}</h3>
