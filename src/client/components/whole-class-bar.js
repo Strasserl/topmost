@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { fetchAnswers } from '../store/studentAnswers';
 import { Redirect } from 'react-router';
+import Button from 'react-bootstrap/Button';
 
 import Loading from './loading';
 import {
@@ -89,6 +90,9 @@ class WholeClasssBar extends PureComponent {
         <p>
           KEY: excellent: 2000, great: 1500, fine: 1000, bad: 500, terrible: 100
         </p>
+        <Button variant="info" href="/">
+          Back to Homepage
+        </Button>
       </div>
     );
   }
