@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import student from './student';
 import messageReducer from './teacherMessages';
+import answerReducer from './studentAnswers';
 
-const reducer = combineReducers({ student, messageReducer });
+const reducer = combineReducers({ student, messageReducer, answerReducer });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 );
