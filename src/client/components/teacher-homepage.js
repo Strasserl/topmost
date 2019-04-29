@@ -2,7 +2,6 @@ import React from 'react';
 import TeacherInputForm from './teacher-input-form';
 import WholeClassPie from './whole-class-pie';
 import { Link } from 'react-router-dom';
-import WholeClassBar from './whole-class-bar';
 
 export const TeacherHome = props => {
   return (

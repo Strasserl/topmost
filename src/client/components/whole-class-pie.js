@@ -6,14 +6,6 @@ import { ResponsiveContainer, PieChart, Pie, Sector, Cell } from 'recharts';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0000'];
 
-const quantity = {
-  excellent: 2000,
-  great: 1500,
-  fine: 1000,
-  bad: 500,
-  terrible: 100,
-};
-
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx,

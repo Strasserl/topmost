@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { fetchAnswers } from '../store/studentAnswers';
+import { Redirect } from 'react-router';
 
 import Loading from './loading';
 import {
@@ -25,13 +26,24 @@ const quantity = {
 class WholeClasssBar extends PureComponent {
   constructor(props) {
     super(props);
+    this.state = {
+      redirectTo: null,
+    };
   }
 
   componentDidMount() {
     this.props.fetchAnswers();
   }
 
+  handleBarClick = data => {
+    this.setState({ redirectTo: data.id });
+  };
+
   render() {
+    if (this.state.redirectTo) {
+      return <Redirect push to={`/students/${this.state.redirectTo}`} />;
+    }
+
     const { answers, answersLoading } = this.props;
 
     const today = answers.filter(answer => {
@@ -39,10 +51,12 @@ class WholeClasssBar extends PureComponent {
     });
 
     const data = today.map(answer => {
-      return { name: answer.student.firstName, mood: quantity[answer.mood] };
+      return {
+        id: answer.studentId,
+        name: answer.student.firstName,
+        mood: quantity[answer.mood],
+      };
     });
-
-    console.log('data', data);
 
     return answersLoading ? (
       <Loading />
@@ -63,7 +77,7 @@ class WholeClasssBar extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="mood" fill="#8884d8" />
+        <Bar dataKey="mood" fill="#8884d8" onClick={this.handleBarClick} />
       </BarChart>
     );
   }
