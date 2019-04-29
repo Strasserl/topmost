@@ -17,22 +17,18 @@ import {
 const quantity = {
   excellent: 2000,
   great: 1500,
-  good: 1000,
   fine: 1000,
   bad: 500,
   terrible: 100,
 };
 
 class WholeClasssBar extends PureComponent {
-  // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
-
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
     this.props.fetchAnswers();
-    // this.props.fetchStudents();
   }
 
   render() {
@@ -75,7 +71,6 @@ class WholeClasssBar extends PureComponent {
 
 const mapState = state => {
   return {
-    // loading: state.students.loading
     answersLoading: state.answerReducer.answersLoading,
     answers: state.answerReducer.all,
   };
@@ -84,7 +79,6 @@ const mapState = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchAnswers: () => dispatch(fetchAnswers()),
-    // fetchStudents: () => dispatch(fetchStudents()),
   };
 };
 
