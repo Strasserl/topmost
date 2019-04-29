@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { fetchAddAnswer } from '../store/studentAnswers';
 
 class StudentInputForm extends Component {
   constructor(props) {
@@ -25,11 +26,11 @@ class StudentInputForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.add(this.state);
     this.setState({
       mood: '',
       comment: '',
     });
-    // this.props.add(this.state);
   }
 
   render() {
@@ -122,17 +123,15 @@ class StudentInputForm extends Component {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     add: obj => {
-//       dispatch(fetchAddCampus(obj));
-//     },
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    add: obj => {
+      dispatch(fetchAddAnswer(obj));
+    },
+  };
+};
 
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(StudentInputForm);
-
-export default StudentInputForm;
+export default connect(
+  null,
+  mapDispatchToProps
+)(StudentInputForm);

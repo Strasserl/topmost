@@ -58,7 +58,7 @@ export const fetchAnswer = id => {
 export const fetchAddAnswer = answer => {
   return async dispatch => {
     try {
-      const { data } = await axios.post('/api/studentAnswer', answer);
+      const { data } = await axios.post('/api/studentAnswers', answer);
       dispatch(addAnswer(data));
     } catch (error) {
       console.log(error);
