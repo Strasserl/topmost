@@ -4,6 +4,7 @@ import { fetchStudent } from '../store/student';
 import Loading from './loading';
 import SingleStudentBar from './single-student-bar';
 import { Table, Container } from 'reactstrap';
+import Button from 'react-bootstrap/Button';
 
 class SingleStudent extends React.Component {
   constructor(props) {
@@ -63,6 +64,12 @@ class SingleStudent extends React.Component {
             </Table>
           </Container>
         </div>
+        <Button href="/class-bar" size="lg" block>
+          Back to All Students
+        </Button>
+        <Button variant="info" href="/" size="lg" block>
+          Back to Homepage
+        </Button>
       </div>
     );
   }
