@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { fetchAddTeacherMsg } from '../reducers';
+import { connect } from 'react-redux';
+import { fetchAddMessage } from '../store/teacherMessages';
 
 class TeacherInputForm extends Component {
   constructor(props) {
@@ -19,11 +19,11 @@ class TeacherInputForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.add(this.state);
     this.setState({
       greeting: '',
       agenda: '',
     });
-    this.props.add(this.state);
   }
 
   render() {
@@ -52,23 +52,21 @@ class TeacherInputForm extends Component {
           />
         </div>
         <br />
-        <button type="submit">Submit Greeting and Agenda</button>
+        <button type="submit">Submit</button>
       </form>
     );
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     add: obj => {
-//       // dispatch(fetchAddTeacherMsg(obj));
-//     },
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    add: obj => {
+      dispatch(fetchAddMessage(obj));
+    },
+  };
+};
 
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(TeacherInputForm);
-
-export default TeacherInputForm;
+export default connect(
+  null,
+  mapDispatchToProps
+)(TeacherInputForm);
