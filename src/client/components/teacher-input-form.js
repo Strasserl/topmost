@@ -30,7 +30,7 @@ class TeacherInputForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
-          <h3>**Optional** Enter Whole Class Greeting to your Students:</h3>
+          <h3>Enter Whole Class Greeting to your Students:</h3>
           <textarea
             rows="2"
             cols="100"
@@ -41,7 +41,7 @@ class TeacherInputForm extends Component {
           />
         </div>
         <div>
-          <h3>**Optional** Enter Daily Agenda: </h3>
+          <h3>Enter Daily Agenda: </h3>
           <textarea
             rows="4"
             cols="100"

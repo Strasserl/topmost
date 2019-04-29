@@ -35,7 +35,7 @@ export const fetchMessages = () => {
   return async dispatch => {
     try {
       dispatch(gettingMessages());
-      const messages = await axios.get('/api/messages');
+      const messages = await axios.get('/api/teacherMessages');
       dispatch(gotMessages(messages));
     } catch (error) {
       console.log(error);
@@ -47,7 +47,7 @@ export const fetchMessage = id => {
   return async dispatch => {
     try {
       dispatch(gettingMessage());
-      const message = await axios.get(`/api/messages/${id}`);
+      const message = await axios.get(`/api/teacherMessages/${id}`);
       dispatch(gotMessage(message));
     } catch (error) {
       console.log(error);
@@ -58,7 +58,7 @@ export const fetchMessage = id => {
 export const fetchAddMessage = message => {
   return async dispatch => {
     try {
-      const { data } = await axios.post('/api/messages', message);
+      const { data } = await axios.post('/api/teacherMessages', message);
       dispatch(addMessage(data));
     } catch (error) {
       console.log(error);
