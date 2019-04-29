@@ -63,6 +63,7 @@ class WholeClasssBar extends PureComponent {
       <Loading />
     ) : (
       <div>
+        <h2>All Students Data for 4/30/19</h2>
         <BarChart
           width={600}
           height={500}
@@ -88,7 +89,8 @@ class WholeClasssBar extends PureComponent {
           <Bar dataKey="mood" fill="#8884d8" onClick={this.handleBarClick} />
         </BarChart>
         <p>
-          KEY: excellent: 2000, great: 1500, fine: 1000, bad: 500, terrible: 100
+          BAR CHART KEY: 2000: excellent, 1500: great, 1000: fine, 500: bad,
+          100: terrible
         </p>
         <Button variant="info" href="/">
           Back to Homepage

@@ -31,9 +31,6 @@ class SingleStudent extends React.Component {
         <img className="studentImage" src={student.imageUrl} />
         <h3> Email: {student.email}</h3>
         <h3> Reading Level: {student.readingLevel}</h3>
-        <p>
-          KEY: excellent: 2000, great: 1500, fine: 1000, bad: 500, terrible: 100
-        </p>
         <div>
           <SingleStudentBar
             student={student}
