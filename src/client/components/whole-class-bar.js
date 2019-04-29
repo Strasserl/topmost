@@ -8,7 +8,6 @@ import Loading from './loading';
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
