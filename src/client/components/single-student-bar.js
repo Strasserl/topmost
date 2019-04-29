@@ -49,7 +49,13 @@ class SingleStudentBar extends PureComponent {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" />
-        <YAxis />
+        <YAxis
+          label={{
+            value: 'terrible <----> excellent',
+            angle: -90,
+            position: 'insideLeft',
+          }}
+        />
         <Tooltip />
         <Legend />
         <Bar dataKey="mood" fill="#8884d8" onClick={this.handleBarClick} />

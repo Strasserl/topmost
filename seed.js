@@ -7,7 +7,8 @@ const students = [
     firstName: 'Fletch',
     lastName: 'Stilgo',
     email: 'fstilgo0@sbwire.com',
-    imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
+    imageUrl:
+      'https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     readingLevel: 925,
     teacherId: [1],
   },
@@ -15,7 +16,8 @@ const students = [
     firstName: 'Nora',
     lastName: 'Unstead',
     email: 'nunstead1@imageshack.us',
-    imageUrl: 'http://dummyimage.com/193x241.jpg/ff4444/ffffff',
+    imageUrl:
+      'https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     readingLevel: 1000,
     teacherId: [1],
   },
@@ -23,7 +25,8 @@ const students = [
     firstName: 'Meg',
     lastName: 'Somerton',
     email: 'msomerton2@umn.edu',
-    imageUrl: 'http://dummyimage.com/223x133.bmp/dddddd/000000',
+    imageUrl:
+      'https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     readingLevel: 975,
     teacherId: [1],
   },
@@ -31,7 +34,8 @@ const students = [
     firstName: 'Skye',
     lastName: 'Wilden',
     email: 'swildene@independent.co.uk',
-    imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
+    imageUrl:
+      'https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     readingLevel: 1100,
     teacherId: [1],
   },
@@ -39,7 +43,8 @@ const students = [
     firstName: 'Amalee',
     lastName: 'Ville',
     email: 'avilleb@w3.org',
-    imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
+    imageUrl:
+      'https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     readingLevel: 1200,
     teacherId: [1],
   },
@@ -47,7 +52,8 @@ const students = [
     firstName: 'John',
     lastName: 'Petrus',
     email: 'bpetrusf@epa.gov',
-    imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
+    imageUrl:
+      'https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     readingLevel: 950,
     teacherId: [1],
   },
@@ -55,7 +61,8 @@ const students = [
     firstName: 'Caelan',
     lastName: 'Chamberlen',
     email: 'schamberlend@php.net',
-    imageUrl: 'http://dummyimage.com/187x183.jpg/cc0000/ffffff',
+    imageUrl:
+      'https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
     readingLevel: 925,
     teacherId: [1],
   },

@@ -62,8 +62,8 @@ class WholeClasssBar extends PureComponent {
       <Loading />
     ) : (
       <BarChart
-        width={500}
-        height={300}
+        width={600}
+        height={500}
         data={data}
         margin={{
           top: 5,
@@ -74,7 +74,13 @@ class WholeClasssBar extends PureComponent {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis
+          label={{
+            value: 'terrible <----> excellent',
+            angle: -90,
+            position: 'insideLeft',
+          }}
+        />
         <Tooltip />
         <Legend />
         <Bar dataKey="mood" fill="#8884d8" onClick={this.handleBarClick} />
